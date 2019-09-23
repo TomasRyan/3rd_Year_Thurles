@@ -3,9 +3,11 @@
 
 int main() {
 	Game gameloop = Game();
-	gameloop.render();
-	//gameloop.update();
-	gameloop.battle();
-	gameloop.stats();
-	gameloop.clean();
+	for (int i = 0; i < 20; i++) {
+		gameloop.render();
+		gameloop.update();
+		gameloop.battle();
+		gameloop.stats();
+		gameloop.clean();
+	}
 }
