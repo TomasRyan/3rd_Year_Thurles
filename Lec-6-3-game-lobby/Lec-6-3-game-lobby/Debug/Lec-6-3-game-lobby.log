@@ -1,0 +1,7 @@
+﻿  Main.cpp
+  Lobby.cpp
+  Player.cpp
+C:\Tammie files\Lec-6-3-game-lobby\Lec-6-3-game-lobby\Player.cpp(23,14): error C2039:  'PrintPlayer': is not a member of 'Player'
+C:\Tammie files\Lec-6-3-game-lobby\Lec-6-3-game-lobby\Player.h(6): message :  see declaration of 'Player'
+  Generating Code...
+C:\Tammie files\Lec-6-3-game-lobby\Lec-6-3-game-lobby\Player.cpp(25,11): error C2059:  syntax error: '<<'
