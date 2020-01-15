@@ -55,6 +55,8 @@ ArrayList<point> listOfPOints = new ArrayList<point>();
 int frame = 0;
 int lengthOfDraw = 23;
 float frameReference = lengthOfDraw;
+int currentFrame = 1;
+int maxFrames = 684;
 //  peasycam for camera
 PeasyCam cam;
 // slider
@@ -69,9 +71,10 @@ void setup() {
   cam.rotateX(radians(100));
   g = new GSlider2D(this, 10, 10, 100, 20);
   //
-  g.setLimitsX(1.0, 0.0, 2.0);
-  g.setNumberFormat(G4P.DECIMAL, 2);
-  g.setOpaque(true);
+  g.setLimitsX(0, -2.0, 2.0);
+  g.setLimitsY(0,0,0);
+  g.setNumberFormat(G4P.INTEGER, 2);
+  g.setOpaque(false);
   //
   frameRate(60);
   try //need to be able to catch an exception that was throw when reading in from the file
@@ -90,21 +93,32 @@ void draw() {
   //for(int f = 0; frame < frameReference; frame++) {
   //  listOfPOints.get(frame).drawLine();
   //}
-  while(frame < frameReference) {
+  /*while(frame < frameReference) {
     listOfPOints.get(frame).drawLine();
-    frame+= g.getValueXF();
-    //frame++;
+    //frame+= g.getValueXI();
+    //print(g.getValueXI());
+    frame++;
+  }*/
+  drawFrame(currentFrame);
+  currentFrame += g.getValueXI();
+  if(currentFrame > maxFrames) {
+    currentFrame -= maxFrames;
   }
-  frameReference+=lengthOfDraw;
+  else if(currentFrame < 0) {
+    currentFrame += maxFrames;
+  }
+  /*frameReference =  frame+(g.getValueXI()*23);
   if(frameReference > listOfPOints.size()) {
     frame = 0;
     frameReference = lengthOfDraw;
-  }
-  /*if(frameReference < 0) {
-         frame = listOfPOints.size();
-         frameReference = lengthOfDraw;
   }*/
+  
+  cam.beginHUD();
+  g.draw();
+  cam.endHUD();
 }
+
+
 
 void ReadinFile() throws FileNotFoundException  //function to read in from file
 {
@@ -114,6 +128,7 @@ void ReadinFile() throws FileNotFoundException  //function to read in from file
   Scanner scan = new Scanner(new BufferedReader(new FileReader(file)));  //link the scanner to the file
   int line = 0;  
   scan.nextLine();  
+  
   while(scan.hasNextLine())
   {
     input = scan.nextLine();    //read in a line of the file  
@@ -130,4 +145,18 @@ void ReadinFile() throws FileNotFoundException  //function to read in from file
   scan.close();
   print(line);
   print("\n" + "fin");
+}
+
+void drawFrame(int frameNumber) {
+  print(frameNumber);
+  int frameToDraw = frameNumber*23;
+  int frameStopDraw = frameToDraw+23;
+   while(frameToDraw < frameStopDraw) {
+     if(frameToDraw < 15732) {
+      listOfPOints.get(frameToDraw).drawLine();
+      //frame+= g.getValueXI();
+      //print(g.getValueXI());
+     }
+     frameToDraw++;
+  }
 }
