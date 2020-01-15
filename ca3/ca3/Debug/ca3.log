@@ -1,0 +1,31 @@
+﻿  Zombie.cpp
+C:\Users\tomas\source\repos\ca3\ca3\code\Zombie.cpp(48,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\tomas\source\repos\ca3\ca3\code\Zombie.cpp(136,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  ZombieArena.cpp
+C:\Users\tomas\source\repos\ca3\ca3\code\ZombieArena.cpp(30,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\tomas\source\repos\ca3\ca3\code\ZombieArena.cpp(31,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\tomas\source\repos\ca3\ca3\code\ZombieArena.cpp(33,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\tomas\source\repos\ca3\ca3\code\ZombieArena.cpp(33,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\tomas\source\repos\ca3\ca3\code\ZombieArena.cpp(681,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Generating Code...
+  ca3.vcxproj -> C:\Users\tomas\source\repos\ca3\Debug\ca3.exe
