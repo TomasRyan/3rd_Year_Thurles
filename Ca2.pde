@@ -60,7 +60,7 @@ int maxFrames = 684;
 //  peasycam for camera
 PeasyCam cam;
 // slider
-GSlider2D g;
+GSlider g;
 void setup() {
   size(600,600,P3D);
   cam = new PeasyCam(this,0, 50, 0, 400);
@@ -69,10 +69,10 @@ void setup() {
   cam.rotateZ(radians(80));
   cam.rotateY(radians(180));
   cam.rotateX(radians(100));
-  g = new GSlider2D(this, 10, 10, 100, 20);
+  g = new GSlider(this, 10, 520, 400, 20, 10);
   //
-  g.setLimitsX(0, -2.0, 2.0);
-  g.setLimitsY(0,0,0);
+  g.setLimits(0, -2.0, 2.0);
+  //g.setLimitsY(0,0,0);
   g.setNumberFormat(G4P.INTEGER, 2);
   g.setOpaque(false);
   //
@@ -85,6 +85,9 @@ void setup() {
   {
     System.out.println(e);
   }
+   cam.setLeftDragHandler(null);  
+  cam.setCenterDragHandler(null);  
+  cam.setRightDragHandler(null);
   background(0);
 }
 
@@ -100,7 +103,7 @@ void draw() {
     frame++;
   }*/
   drawFrame(currentFrame);
-  currentFrame += g.getValueXI();
+  currentFrame += g.getValueF(); // get the float value of g
   if(currentFrame > maxFrames) {
     currentFrame -= maxFrames;
   }
@@ -114,6 +117,7 @@ void draw() {
   }*/
   
   cam.beginHUD();
+  //g.setValueY(0.0);
   g.draw();
   cam.endHUD();
 }
